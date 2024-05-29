@@ -5,11 +5,24 @@
 #define TRUE 1
 #define FALSE 0
 
+
+int is_even(int num);
+
 int main(void) {
 	int number;
+	scanf("%d", &number);
 
+	if (is_even(number) == 1) {
+		printf("Is even\n");
+	} else {
+		printf("Is odd\n");
+	}
 }
 
-int is_even(int number) {
+int is_even(int num) {
+	if ((num % 2) == 0) {
+		return TRUE;
+	} 
 
+	return FALSE;
 }

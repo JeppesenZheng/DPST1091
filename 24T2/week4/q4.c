@@ -46,6 +46,12 @@ struct inventory {
 ////////////////////////////////////////////////////////////////////////////////
 
 // TODO: Add functions protoypes here
+struct bubble_tea teaOrder(void);
+int check_stock(struct bubble_tea order, struct inventory inventory);
+double calculate(struct bubble_tea order);
+void msg(struct bubble_tea order, double total_cost);
+struct inventory update(struct bubble_tea order, struct inventory inventory);
+void msg1(struct inventory inventory);
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// MAIN FUCNTION ///////////////////////////////////
@@ -57,6 +63,35 @@ int main(void) {
     inventory.toppings = BASE_TOPPINGS;
 
     // Step 1: Take the user's bubble tea order
+    struct bubble_tea order = teaOrder();
+
+    // Step 2: Check available stock and end the program if insufficient stock
+    if (check_stock(order, inventory) == 1) {
+        return 1;
+    }
+
+    // Step 3: Calculate the cost
+    double total_cost = calculate(order);
+
+    // Step 4: Print the final order and cost
+    msg(order, total_cost);
+
+    // Step 5: Update the stock after fulfilling the order
+    inventory = update(order, inventory);
+
+    // Step 6: print the remining inventory
+    msg1(inventory);
+
+
+    return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////// FUNCTION DEFINITIONS /////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+// TODO: Write function definitionds here
+struct bubble_tea teaOrder(void) {
     struct bubble_tea order;
     int type;
 
@@ -91,8 +126,11 @@ int main(void) {
 
     printf("Enter size (L for Large, R for Regular): ");
     scanf(" %c", &order.size);
+    
+    return order;
+}
 
-    // Step 2: Check available stock and end the program if insufficient stock
+int check_stock(struct bubble_tea order, struct inventory inventory) {
     if (inventory.tea - 1 <= 0 ||
         inventory.toppings - order.topping_qty <= 0) {
         printf("Sorry, we cannot fulfill your bubble tea order due to "
@@ -100,7 +138,10 @@ int main(void) {
         return 1; 
     }
 
-    // Step 3: Calculate the cost
+    return 0;
+}
+
+double calculate(struct bubble_tea order) {
     double total_cost = BASE_COST;
 
     if (order.size == LARGE) {
@@ -119,14 +160,19 @@ int main(void) {
         count++;
     }
 
-    // Step 4: Print the final order and cost
+    return total_cost;
+}
+
+void msg(struct bubble_tea order, double total_cost) {
     printf("Order:\n");
     printf("Type: %d\n", order.type);
     printf("Topping Qty: %d\n", order.topping_qty);
     printf("Size: %c\n", order.size);
     printf("Total Cost: %.2lf\n", total_cost);
+    return;
+}
 
-    // Step 5: Update the stock after fulfilling the order
+struct inventory update(struct bubble_tea order, struct inventory inventory) {
     if (order.size == LARGE) {
         inventory.tea -= 2;
     } else {
@@ -135,17 +181,12 @@ int main(void) {
             
     inventory.toppings -= order.topping_qty;
 
-    // Step 6: print the remining inventory
+    return inventory;
+}
+
+void msg1(struct inventory inventory) {
     printf("The current inventory is: ");
     printf("Bubble tea(s): %d\n", inventory.tea);
     printf("Topping(s): %d\n", inventory.toppings);
-
-
-    return 0;
+    return;
 }
-
-////////////////////////////////////////////////////////////////////////////////
-///////////////////////////// FUNCTION DEFINITIONS /////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
-// TODO: Write function definitionds here
