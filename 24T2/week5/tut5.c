@@ -3,13 +3,26 @@
 
 2. how to create an array
 
+3. how to initialise an array
 
+4. how to traverse an array
+
+5. string
+
+6. 2D array
 */
 
 #include <stdio.h>
+#include <string.h>
+
+#define SIZE 5
 
 int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    printf("%d\n", (int)sizeof(arr));
+    // create an array
+    int arr[SIZE];
+    // scan in the value into the array
+
+    // print the value in the array
+
     return 0;
 }
