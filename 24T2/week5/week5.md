@@ -16,7 +16,7 @@ for(int i = 0; i < size; i ++) {
 ```
 * how to pass an int array into function
     * `void functionName(int *arr)`
-    * `void functionName(int arr[])`
+    * `void functionName(int arr[SIZE])`
     * `functionName(arr)`
 2. String
 * difference between string and int array

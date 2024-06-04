@@ -2,7 +2,13 @@
 
 // Function to multiply every element in the 2D array by a given scalar
 void scalar_multiple(int rows, int columns, int matrix[rows][columns], int scalar) {
-
+    for (int row = 0; row < rows; row ++) {
+        for (int col = 0; col < columns; col ++) {
+            matrix[row][col] = matrix[row][col] * scalar;
+            // alternative way
+            // matrix[row][col] *= scalar;
+        }
+    }
 }
 
 // Function to print the 2D array

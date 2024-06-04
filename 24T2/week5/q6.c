@@ -10,5 +10,9 @@ struct customer {
 };
 
 int main(void) {
-
+   struct customer customers[15];
+   customers[1].customer_id = 123456;
+   customers[4].salary = 70000.5;
+   printf("%d\n", customers[1].customer_id);
+   printf("%lf\n", customers[4].salary);
 }
