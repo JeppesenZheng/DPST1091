@@ -25,25 +25,28 @@ struct celestial_body {
 };
 
 void print_map(struct celestial_body galaxy[SIZE][SIZE]);
+void init(struct celestial_body galaxy[SIZE][SIZE]);
+void place_player(struct celestial_body galaxy[SIZE][SIZE]);
+void place_planets(struct celestial_body galaxy[SIZE][SIZE]);
+void place_stars(struct celestial_body galaxy[SIZE][SIZE]);
 
 int main(void) {
     struct celestial_body galaxy[SIZE][SIZE];
 
-    // TODO: Initialize the galaxy
+    // Initialize the galaxy
+    init(galaxy);
 
-    // TODO: Place the player in the galaxy
-    printf("Enter the starting position of the player: ");
+    // Place the player in the galaxy
+    place_player(galaxy);
 
-    // TODO: Place the planets and nebulae in the galaxy
-    printf("How many planets and nebulae are there? ");
-
-    // TODO: Place the planets and nebulae in the galaxy
-    printf("Enter the position and points of the planet(s) and nebula(e): ");
+    // Place the planets and nebulae in the galaxy
+    place_planets(galaxy);
     
-    // TODO: Place the stars in the galaxy
-    printf("Enter the position and points of the star(s): \n");
+    // Place the stars in the galaxy
+    place_stars(galaxy);
 
-    // TODO: Print the map
+    // Print the map
+    print_map(galaxy);
 }
 
 // Function prints the map of the galaxy
@@ -71,5 +74,57 @@ void print_map(struct celestial_body galaxy[SIZE][SIZE]) {
         }
         printf("|\n");
         printf("---------------------\n");
+    }
+}
+
+void init(struct celestial_body galaxy[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i ++) {
+        for (int j = 0; j < SIZE; j ++) {
+            galaxy[i][j].entity = EMPTY;
+            galaxy[i][j].points = 0;
+        }
+    }
+}
+
+void place_player(struct celestial_body galaxy[SIZE][SIZE]) {
+    printf("Enter the starting position of the player: ");
+    int row, col;
+    scanf("%d %d", &row, &col);
+    while(row != 0 && row != SIZE - 1 && col != 0 && col != SIZE - 1) {
+        printf("Invalid starting position!\n");
+        printf("Re-enter starting position: ");
+        scanf("%d %d", &row, &col);
+    }
+    galaxy[row][col].entity = SPACESHIP;
+}
+
+void place_planets(struct celestial_body galaxy[SIZE][SIZE]) {
+    printf("How many planets and nebulae are there? ");
+    int row, col;
+    char type;
+    int points;
+    int count;
+    scanf("%d", &count);
+    for (int i = 0; i < count; i ++) {
+        printf("Enter the position and points of the planet(s) and nebula(e): ");
+        scanf(" %c %d %d", &type, &row, &col);
+        if (type == 'p') {
+            scanf("%d", points);
+            galaxy[row][col].entity = PLANET;
+            galaxy[row][col].points = points;
+        } else if (type = 'n') {
+            galaxy[row][col].entity = NEBULA;
+            galaxy[row][col].points = NEBULA_POINTS;
+        } else {
+            galaxy[row][col].points = 0;
+        }
+    }
+}
+
+void place_stars(struct celestial_body galaxy[SIZE][SIZE]) {
+    int row, col, points;
+    printf("Enter the position and points of the star(s): \n");
+    while(scanf("%d %d %d", &row, &col, &points) != EOF) {
+        galaxy[row][col].points = points;
     }
 }

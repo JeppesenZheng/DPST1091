@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 // what does this function do?
+// count how many lowercase alphabet in side the word string
 
 int secret_function(char *word) {
     int i = 0;
