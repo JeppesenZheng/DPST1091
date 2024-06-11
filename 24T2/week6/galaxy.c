@@ -109,10 +109,10 @@ void place_planets(struct celestial_body galaxy[SIZE][SIZE]) {
         printf("Enter the position and points of the planet(s) and nebula(e): ");
         scanf(" %c %d %d", &type, &row, &col);
         if (type == 'p') {
-            scanf("%d", points);
+            scanf("%d", &points);
             galaxy[row][col].entity = PLANET;
             galaxy[row][col].points = points;
-        } else if (type = 'n') {
+        } else if (type == 'n') {
             galaxy[row][col].entity = NEBULA;
             galaxy[row][col].points = NEBULA_POINTS;
         } else {
@@ -125,6 +125,7 @@ void place_stars(struct celestial_body galaxy[SIZE][SIZE]) {
     int row, col, points;
     printf("Enter the position and points of the star(s): \n");
     while(scanf("%d %d %d", &row, &col, &points) != EOF) {
+        galaxy[row][col].entity = STAR;
         galaxy[row][col].points = points;
     }
 }
