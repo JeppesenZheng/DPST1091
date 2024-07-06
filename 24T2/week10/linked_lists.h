@@ -55,3 +55,31 @@ void print_list(struct node *head);
 // Returns:
 //      The number of nodes in the linked list
 int list_length(struct node *head);
+
+// remove the head node in a linked list
+//
+// Parameters:
+//      head: A pointer to the head of the linked list
+//
+// Returns:
+//      A pointer to the new head of the linked list
+struct node *remove_head(struct node *head);
+
+// remove the tail node in a linked list
+//
+// Parameters:
+//      head: A pointer to the head of the linked list
+//
+// Returns:
+//      A pointer to the new head of the linked list
+struct node *remove_tail(struct node *head);
+
+// remove the specifica data node in a linked list
+//
+// Parameters:
+//      head: A pointer to the head of the linked list
+//      data: which data wanna remove
+//
+// Returns:
+//      A pointer to the new head of the linked list
+struct node *remove_data(struct node *head, int data);

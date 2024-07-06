@@ -27,8 +27,30 @@ int main(void) {
     // Print the linked list
     print_list(head);
 
+    head = remove_head(head);
+
+    // Print the linked list
+    print_list(head);
+
+    head = remove_tail(head);
+
+    // Print the linked list
+    print_list(head);
+
+    head = remove_data(head, 10);
+
+    // Print the linked list
+    print_list(head);
+
     // Calculate and print the length of the linked list
     int length = list_length(head);
+    printf("There are %d nodes in the list\n", length);
+
+    head = remove_tail(head);
+
+    print_list(head);
+
+    length = list_length(head);
     printf("There are %d nodes in the list\n", length);
 
     return 0;

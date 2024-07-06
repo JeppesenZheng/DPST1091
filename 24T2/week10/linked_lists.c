@@ -1,6 +1,7 @@
 // linked_list.c
 // This program was written by YOUR-NAME (zID)
 // Implementation for simple linked lists functions
+// run gcc -o linked_lists main.c linked_lists.c
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,4 +39,19 @@ void print_list(struct node *head) {
 int list_length(struct node *head) {
     // TODO
     exit(1);
+}
+
+struct node *remove_head(struct node *head) {
+	// TODO
+	exit(1);
+}
+
+struct node *remove_tail(struct node *head) {
+	// TODO
+	exit(1);
+}
+
+struct node *remove_data(struct node *head, int data) {
+	// TODO
+	exit(1);
 }
