@@ -29,5 +29,41 @@ struct node {
 };
 
 int main(void) {
-    printf("%d\n", (int)sizeof(struct node));
+    struct node *node1 = malloc(sizeof(struct node));
+    node1->data = 3;
+    node1->next = NULL;
+
+    struct node *head = node1;
+
+    struct node *node2 = malloc(sizeof(struct node));
+    node2->data = 9;
+    node2->next = NULL;
+
+    node1->next = node2;
+
+    struct node *node3 = malloc(sizeof(struct node));
+    node3->data = 5;
+    node3->next =NULL;
+
+    node3->next = node1;
+
+    head = node3;
+
+    struct node *curr = head;
+    while(curr != NULL) {
+
+        printf("value %d\n", curr->data);
+        curr = curr->next;
+    }
+
+
+    free(node1);
+    free(node2);
+    free(node3);
 }
+
+/*
+head -> node3 -> node1 -> node2 -> null
+       data:5   data:3   data:9
+
+*/
