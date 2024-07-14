@@ -15,14 +15,22 @@ int main(void) {
     // Insert a node at the beginning of the linked list
     head = insert_head(head, 10);
 
+    print_list(head);
+
     // Insert a node at the beginning of the linked list
     head = insert_head(head, 5);
+
+    print_list(head);
 
     // Insert a node at the end of the linked list
     head = insert_tail(head, 15);
 
+    print_list(head);
+
     // Insert a node at the end of the linked list
     head = insert_tail(head, 20);
+
+    head = insert_tail(head, 30);
 
     // Print the linked list
     print_list(head);
@@ -37,7 +45,7 @@ int main(void) {
     // Print the linked list
     print_list(head);
 
-    head = remove_data(head, 10);
+    head = remove_data(head, 15);
 
     // Print the linked list
     print_list(head);
