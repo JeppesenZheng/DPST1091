@@ -55,7 +55,19 @@ struct node *list_append(struct node *head1, struct node *head2) {
 
 // reverse the linked list
 struct node *list_reverse(struct node *head) {
-	return NULL;
+    struct node* prev = NULL;
+    struct node* current = head;
+    struct node* next = NULL;
+
+    while (current != NULL) {
+        next = current->next;  // Store next node
+        current->next = prev;  // Reverse current node's pointer
+        prev = current;        // Move pointers one position ahead
+        current = next;
+    }
+    head = prev;
+    return head;
+
 }
 
 struct node *list_find_intersection(struct node *head1, struct node *head2) {
@@ -98,5 +110,8 @@ int main() {
     head1 = appendNode(head1, 8);
     head1 = appendNode(head1, 10);
     head1 = appendNode(head1, 12);
+
+
+    print_list(list_reverse(head1));
 
 }
