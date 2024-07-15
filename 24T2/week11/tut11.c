@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
 /*
 week 11 tut tut hurdle question
@@ -133,7 +134,14 @@ int main() {
     head1 = appendNode(head1, 10);
     head1 = appendNode(head1, 12);
 
-
-    print_list(list_reverse(head1));
+    struct node *head2 = NULL;
+    // create second linked list like this
+    // 4->5->1->8->10->12
+    head2 = appendNode(head2, 4);
+    head2 = appendNode(head2, 5);
+    head2 = appendNode(head2, 1);
+    head2 = appendNode(head2, 8);
+    head2 = appendNode(head2, 10);
+    head2 = appendNode(head2, 12);
 
 }
