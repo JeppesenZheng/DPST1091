@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+week 11 tut tut hurdle question
+If there is a linked list: 1->2->3->4->NULL
+how to remove the node with the value 2
+finish the function below
+struct node *removeNodeTwo(struct node *head) {
+
+}
+*/
+
 struct node
 {
 	int data;
