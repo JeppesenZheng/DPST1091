@@ -78,6 +78,18 @@ int list_count_occurrences(struct node *head, int data) {
 	return 0;
 }
 
+struct node *removeHead(struct node *head) {
+    return NULL;
+}
+
+struct node *removeInside(struct node *head, int target) {
+    return NULL;
+}
+
+struct node *removeTail(struct node *head) {
+    return NULL;
+}
+
 void print_list(struct node *head) {
     // Set current to be the first node in the list
     struct node *current = head;
