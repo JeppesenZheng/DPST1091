@@ -37,6 +37,7 @@ int main(void) {
     // TODO: take user input
 
     // TODO: Calculate cost of order
+    double total_cost = BASE_COST;
 
 	printf("Total cost: %.2lf\n", total_cost);
 	return 0;
