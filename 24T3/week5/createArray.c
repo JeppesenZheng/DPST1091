@@ -35,5 +35,12 @@ int main(void) {
 		printf("current value is %d\n", array[i]);
 	}
 
+	// init all values into 0
+	int arr[5] = {0};
+
+	// the index from 2 to 4 will all be initliased into 0 by default
+	int arr[5] = {1, 2};
+
+
 	return 0;
 }
