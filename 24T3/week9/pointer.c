@@ -24,4 +24,5 @@ int main(void) {
 	printf("the value of p is %d\n", *p);
 	*q = 8;
 	printf("the value of q is %d\n", *q);
+	// can think like p is the address, *p is the value at this address
 }
